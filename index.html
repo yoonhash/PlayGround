@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101211">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>N.S.F.W. — Not Safe For Work</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="wordmark" href="#" aria-label="N.S.F.W. home"><span class="brand-mark">N</span><span>N.S.F.W.</span></a>
+      <div class="top-note"><i></i> OFFICE HOURS ARE A SUGGESTION</div>
+      <button class="sound-button" id="soundButton" aria-label="Toggle sound" title="Toggle sound">♪ <span>SOUND ON</span></button>
+    </header>
+
+    <section class="game-layout" aria-label="Game">
+      <div class="game-column">
+        <div class="game-heading">
+          <div><p class="eyebrow">A VERY IMPORTANT WORKPLACE SIMULATOR</p><h1>Not Safe <em>For Work.</em></h1></div>
+          <div class="shift-tag"><span class="live-dot"></span> SHIFT 09:00 — 10:15</div>
+        </div>
+        <div class="canvas-wrap" id="canvasWrap">
+          <canvas id="game" width="960" height="600" aria-label="Sneak around the office, collect your personal files, and reach the exit."></canvas>
+          <div class="screen" id="startScreen">
+            <div class="screen-card intro-card">
+              <div class="sticker">TOTALLY WORKING <span>✓</span></div>
+              <p class="eyebrow">THE QUARTERLY REVIEW CAN WAIT</p>
+              <h2>One last<br><em>download.</em></h2>
+              <p class="screen-copy">Collect all <b>8 personal files</b> and slip out before the boss catches you. Desks block their line of sight. Try to look busy.</p>
+              <button class="primary-button" id="startButton">CLOCK IN <span>→</span></button>
+              <div class="key-note"><kbd>WASD</kbd> or <kbd>← ↑ ↓ →</kbd> to move <span>·</span> <kbd>SHIFT</kbd> to sprint</div>
+            </div>
+            <div class="screen-scribble">remember to<br>look stressed</div>
+          </div>
+          <div class="screen hidden" id="endScreen">
+            <div class="screen-card end-card">
+              <div class="end-icon" id="endIcon">✦</div>
+              <p class="eyebrow" id="endEyebrow">SHIFT COMPLETE</p>
+              <h2 id="endTitle">Beautifully<br><em>unemployed.</em></h2>
+              <p class="screen-copy" id="endCopy">You escaped with all your files. Your productivity score remains a mystery.</p>
+              <div class="score-row"><span>FILES SECURED</span><b id="finalScore">08 / 08</b><span>TIME LEFT</span><b id="finalTime">00:00</b></div>
+              <button class="primary-button" id="againButton">PLAY AGAIN <span>↻</span></button>
+            </div>
+          </div>
+          <div class="pause-badge hidden" id="pauseBadge">PAUSED <span>· PRESS P TO RESUME</span></div>
+        </div>
+        <div class="control-row">
+          <div class="legend"><span class="legend-dot file-dot"></span> PERSONAL FILE <span class="legend-dot boss-dot"></span> MANAGEMENT</div>
+          <div class="tip">TIP: THE FURNITURE IS ON YOUR SIDE.</div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="stat-card objective-card">
+          <div class="card-label">TODAY'S PRIORITIES <span>01—03</span></div>
+          <div class="objective"><span class="objective-check">01</span><span>Recover personal files</span><b id="fileCount">00<span> / 08</span></b></div>
+          <div class="objective"><span class="objective-check">02</span><span>Don't get noticed</span><b class="alert-word" id="alertWord">LOW</b></div>
+          <div class="objective"><span class="objective-check">03</span><span>Find the fire exit</span><b class="exit-status" id="exitStatus">LOCKED</b></div>
+        </div>
+        <div class="stat-card alert-card">
+          <div class="card-label">MANAGER ATTENTION <span id="alertPercent">00%</span></div>
+          <div class="meter"><div class="meter-fill" id="alertFill"></div><span class="meter-tick t1"></span><span class="meter-tick t2"></span><span class="meter-tick t3"></span></div>
+          <p id="alertHint">Completely invisible. As it should be.</p>
+        </div>
+        <div class="stat-card time-card">
+          <div class="card-label">TIME UNTIL THE 1:1 <span>⏱</span></div>
+          <div class="timer" id="timer">01:15</div>
+          <div class="timer-sub">MINUTES OF PLAUSIBLE DENIABILITY</div>
+        </div>
+        <div class="quip-card"><span class="quote-mark">“</span><p id="quip">Per my last email,<br>I was never here.</p><span class="quip-by">— A THOUGHTFUL COWORKER</span></div>
+        <button class="restart-button" id="restartButton">↻ &nbsp; RESTART SHIFT <kbd>R</kbd></button>
+      </aside>
+    </section>
+    <footer><span>AN UNAUTHORIZED BREAKROOM PRODUCTION</span><span>NO ACTUAL WORK WAS HARMED IN THIS GAME</span></footer>
+  </main>
+  <div class="mobile-pad" id="mobilePad" aria-label="Movement controls">
+    <div class="pad-cross"><button data-dir="up" aria-label="Move up">▲</button><button data-dir="left" aria-label="Move left">◀</button><button data-dir="down" aria-label="Move down">▼</button><button data-dir="right" aria-label="Move right">▶</button></div>
+    <button class="sprint-button" id="sprintButton">SPRINT</button>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
